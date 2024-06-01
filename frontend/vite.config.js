@@ -8,8 +8,8 @@ export default defineConfig({
     port:3000,
     proxy:{
       '/api': {
-        target: 'http://localhost:5000',
-        // changeOrigin: true, // Needed for CORS support
+        target: 'https://movie-app-rrok.onrender.com/',
+        changeOrigin: true, // Needed for CORS support
         // rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },

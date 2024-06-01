@@ -7,7 +7,7 @@ import { FaPlus } from "react-icons/fa";
 
 const Navbar = ({search,setSearch}) => {
     const {authUser} = useAuthContext();
-    const profilePicUrl = authUser.profilePic.startsWith('http') ? authUser.profilePic : `http://localhost:5000${authUser.profilePic}`;
+    const profilePicUrl = authUser.profilePic.startsWith('http') ? authUser.profilePic : `https://movie-app-rrok.onrender.com${authUser.profilePic}`;
   return (
     <div className="navbar bg-base-100">
         <div className="flex-1">
