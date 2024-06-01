@@ -15,6 +15,7 @@ const useGetPlaylists = () => {
                 throw new Error(data.error);
             }
             setPlaylists(data);
+            console.log(data);
         }
         catch (error) {
             toast.error(error.message);

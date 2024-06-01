@@ -3,6 +3,7 @@ import LogOutBtn from '../Components/LogOutBtn'
 import MovieList from '../Components/MovieList.jsx';
 import Navbar from '../Components/Navbar.jsx';
 import NewPlaylist from './NewPlaylist.jsx';
+import Playlists from '../Components/Playlists.jsx';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -23,15 +24,13 @@ const Home = () => {
   },[search]);
 
   return (
-    <div className='flex flex-col sm:h-[450px] md:h-[550px] rounded-lg overflow-auto bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 shadow-md'>
+    <div className='flex flex-col sm:h-[450px] md:h-[550px] rounded-lg overflow-auto bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 shadow-md overflow-x-hidden'>
       <Navbar search={search} setSearch={setSearch}/>
       <MovieList movies={movies}/>
       <div className="navbar bg-base-300">
         <button className="btn btn-ghost text-xl">PlayLists</button>
       </div>
-      <div className="navbar bg-base-300">
-        <button className="btn btn-ghost text-xl">PlayLists</button>
-      </div>
+      <Playlists/>
     </div>
   )
 }

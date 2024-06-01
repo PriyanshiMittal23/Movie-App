@@ -8,6 +8,7 @@ const PlaylistBtn = ({movie}) => {
   const {addToPlaylist} = useAddToPlaylist();
   const handleClick = async(playlistId,movieDetails)=>{
     await addToPlaylist(playlistId, movieDetails);
+    await getPlaylists();
   }
 
   return (

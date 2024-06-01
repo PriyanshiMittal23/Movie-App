@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import {Toaster} from 'react-hot-toast'
 import { useAuthContext } from './Context/AuthContext'
 import NewPlaylist from './Pages/NewPlaylist.jsx'
+import ViewPlaylist from './Pages/ViewPlaylist.jsx'
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/login' element={authUser? <Navigate to='/' />: <Login/>}/>
         <Route path='/register' element={authUser? <Navigate to='/' />: <Register/>}/>
         <Route path='/playlist/new' element={authUser ? <NewPlaylist /> : <Navigate to='/login' />} />
+        <Route path="/playlist/:playlistId/view" element={authUser ?<ViewPlaylist/>: <Navigate to='/login' />} />
       </Routes>
       <Toaster />
     </div>

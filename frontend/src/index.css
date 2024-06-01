@@ -26,3 +26,22 @@ body{
 ::-webkit-scrollbar-thumb:hover{
     background: #242424;
 }
+
+/* Ensure horizontal scrolling for carousel */
+.carousel-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure vertical scrolling for Home component */
+.home-container {
+  flex: 1;
+  overflow-y: auto;
+}
+

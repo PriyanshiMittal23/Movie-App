@@ -5,7 +5,7 @@ import User from "../models/User.js";
 export const allPlaylist = async(req,res)=>{
     try {
         const userId = req.user.userId;
-        const playlists = await Playlist.find({ author: userId });
+        const playlists = await Playlist.find({ author: userId }).populate('movies');
         // console.log(playlists);
         res.status(201).json(playlists);
     } catch (error) {
@@ -71,6 +71,25 @@ export const newPlaylist = async(req,res)=>{
         
     } catch (error) {
         console.log("Error in newPlaylist Controller",error.message);
+        res.status(500).json({error:"Internal server error"});
+    }
+}
+
+export const viewPlaylist = async(req,res)=>{
+    try {
+        const playlistId = req.params.playlistId;
+        const playlist = await Playlist.findById(playlistId);
+        if(playlist.Type==="Private"){
+            if(req.user.userId!== playlist.author.toString()){
+                return res.status(404).json({error:"You need permission to view this playlist"});
+            }
+        }
+        await playlist.populate('movies');
+        // const moviesall=await playlist.movies;
+        res.status(201).json(playlist);
+        
+    } catch (error) {
+        console.log("Error in viewPlaylist Controller",error.message);
         res.status(500).json({error:"Internal server error"});
     }
 }
