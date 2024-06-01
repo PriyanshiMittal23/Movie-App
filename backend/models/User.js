@@ -24,7 +24,14 @@ const userSchema = new mongoose.Schema({
     profilePic:{
         type:String,
         default:""
-    }
+    },
+    playlist:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Playlist",
+            default:[]
+        }
+    ]
 },{timestamps:true})
 
 const User = mongoose.model("User",userSchema);

@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.routes.js';
+import playlistRoutes from './routes/playlist.routes.js';
 
 const app = express();
 dotenv.config();
@@ -24,6 +25,7 @@ app.get("/",(req,res)=>{
     res.send("hello");
 })
 app.use('/api/auth',authRoutes);
+app.use('/api/playlist',playlistRoutes);
 
 app.listen(PORT,()=>{
     connectToMongoDB();
