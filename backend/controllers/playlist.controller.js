@@ -81,7 +81,7 @@ export const viewPlaylist = async(req,res)=>{
         const playlist = await Playlist.findById(playlistId);
         if(playlist.Type==="Private"){
             if(req.user.userId!== playlist.author.toString()){
-                return res.status(403).json({error:"You need permission to view this playlist"});
+                return res.status(404).json({error:"You need permission to view this playlist"});
             }
         }
         await playlist.populate('movies');
