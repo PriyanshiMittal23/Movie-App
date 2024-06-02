@@ -34,6 +34,7 @@ const Playlists = () => {
             <div className='playlist-info p-4'>
               <h4 className="text-lg font-semibold mb-2">{playlist.Name}</h4>
               <p className='text-sm text-gray-600'>{playlist.movies.length} movies</p>
+              <p className='text-sm text-gray-600'>{playlist.Type}</p>
             </div>
           </Link>
         ))

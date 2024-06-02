@@ -33,7 +33,7 @@ const NewPlaylist = () => {
     <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
         <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
             <h1 className='text-3xl font-semibold text-center text-gray-500'>
-                <Link to={'/'}><MdMovieCreation className=' inline-block m-2 tooltip tooltip-left' data-tip=" Home" /></Link>
+                <Link to={'/'} className='tooltip tooltip-left' data-tip="Tap to go to Home"><MdMovieCreation className=' inline-block m-2'/></Link>
                 New Playlist <span className='text-cyan-400'> MovieApp</span>
             </h1>
             <form onSubmit={handleSubmit}>
